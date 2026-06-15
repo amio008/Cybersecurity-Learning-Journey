@@ -1,1 +1,24 @@
+##Type of Network Models
+There are two main network models which are classified as De-facto and De jure. The TCP/IP model is known as the De-facto model and the OSI reference model is
+known as De jure. Initially, the TCP/IP model was created and implemented with its 4 layers. Afterwards, OSI model was proposed which added 3 extra layers alongside
+the layers of TCP/IP. But at implementation, it was not found to be efficient enough hence OSI model is mainly studied theoretically and is a reference model for 
+learning and TCP/IP is widely used everywhere.
+
+##OSI model layers:
+7. Application layer: email, web browsers
+6. Presentation layer: Data translation, encryption, compression
+5. Session layer: Dialog control, synchronization. Starts/stops conversation between apps.
+4. Transport layer: Breaks data into chunks, checks for errors.
+3. Network layer: Finds route(addressing)
+2. Data Link layer: Moves data within same local network(MAC addr.)
+1. Physical layer: Cables, radio signals, electric pulses.
+
+##TCP/IP model layers:
+4. Application layer: OSI model 7,6,5
+3. Transport layer: OSI model 4
+2. Internet/Network layer: OSI model 3
+1. Network access layer: OSI model 1,2
+
+
+
 
