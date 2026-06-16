@@ -54,3 +54,20 @@ type=CNAME : Name is alias name, value is canonical name
 type=NS : Name is domain, value is hostname of authoritative name server of the domain
 type=MX : Value is name of mail server associated with name
 
+##Application layer: FTP, P2P and CDN
+
+CDN = Content Distribution Network
+
+Two types of encoding used in video streaming-
+1. Spatial encoding
+2. Temporal encoding
+
+CBR: Constant Bit rate
+VBR: Variable Bit rate
+
+Streaming: DASH
+
+DASH stands for Dynamic, Adaptive streaming over HTTP
+
+CDN uses either Enter Deep or Bring Home method to distribute content globally 
+
