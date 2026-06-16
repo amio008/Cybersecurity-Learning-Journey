@@ -71,3 +71,14 @@ DASH stands for Dynamic, Adaptive streaming over HTTP
 
 CDN uses either Enter Deep or Bring Home method to distribute content globally 
 
+##Types of attackes in application layer:
+1. DDoS attacks
+2. Bombard TLD servers
+3. Redirect attacks-
+   a. Man-in-middle
+   b. DNS Poisoning
+4. Exploit DNS for DDoS-
+   a. send queries with spoofed source address
+   b. requires amplification
+
+
