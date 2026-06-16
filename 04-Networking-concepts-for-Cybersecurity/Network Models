@@ -1,1 +1,41 @@
+## Network models and fundamentals and related cybersecurity discussions
+
+Important to remember: PDU(Protocol Data Unit) of the different layers
+
+Application: Data
+Transport: Segment
+Network: Packet
+Data-link: Frame
+Physical: Bits
+
+There are two type of cybersecurity professionals. They are - Read team and Blue team.
+
+Red team(attackers): Security professionals who mimic real-world hackers. Their goal is to find weakness, break into systems and test defenses.
+
+Blue team(defenders): Security guardians(SOC analysts, incident responders) who defend assets, monitor network traffic, detect malicious activity and fix 
+vulnerabilities.
+
+##DDoS: Distributed Denial of Service, used by attackers
+Network layer: floods badwidth
+Application layer: flooding web servers
+
+##DPI: Deep Packet Inspection, used by defenders
+Tools are ussed to strip away headers layer-by-layer to see if malicious code is hidden inside the application data payload.
+
+Tool used:
+1. Wireshark: A packet analyzer that visually seperates captured packet into its respective OSI layers for investigations
+2. Network Miners: Tools that extract files and certificates directly from layer protocols
+
+##What blue team does:
+1. Look at the headers of different PDUs
+2. If they find a packet with spoofed IP address or a segment with weird flags, they write firewall rules to drop that specific layer traffic
+3. Block malicious data at the lowest layer possible before it reaches and harms the system
+
+##What red team does: 
+1. Craft custom PDUs
+2. Manipulate data link layer to sniff local traffic or inject malicious data into the application layer
+3. Bypass security controls like firewalls by hiding malicious data in layers the firewall isn't thoroughly inspecting
+
+
+
 
