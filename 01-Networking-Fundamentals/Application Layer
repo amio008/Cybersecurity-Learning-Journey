@@ -44,3 +44,13 @@ Key facts:
 1. DNS servers distribute load through a round robin method
 2. TLD(Top level domains): com, edu, org
 3. DNS queries can be two types - Iterated query and recursive query
+
+
+##DNS records:
+RR format: (name, value, type, ttl)
+
+type=A : Name is hostname, value is IP
+type=CNAME : Name is alias name, value is canonical name
+type=NS : Name is domain, value is hostname of authoritative name server of the domain
+type=MX : Value is name of mail server associated with name
+
