@@ -1,0 +1,46 @@
+##Application Layer - HTTP
+
+Application layer uses two architectures: 
+1. Client-server architecture(centralized)
+2. Peer-to-peer architecture(decentralized)
+
+Key points to remember:
+1. Webpage has objects
+2. Each object has a URL
+3. All objects stay at the base HTML file
+4. URL : Uniform Resource Locator
+5. Browsers use port 80
+
+Types of HTTP:
+1. Non-persistent HTTP: For each object, TCP/IP connection is set up once, and then ended 
+2. Persistent HTTP: All objects are transferred within one TCP/IP connection
+
+RTT: Round Trip time
+FTT: File Transmission Time
+
+Non-persistent HTTP Response time = 2*RTT + FTT
+Persistent HTTP response time = 2* num of obj +FTT
+
+Caching:
+Average response time = LAN Delay + Access Delay + Internet Delay
+
+Stale cache: Cache memory that is not updated ans different from the root servers version
+
+## Application Layer : Email and DNS
+
+SMTP: Push methodology
+HTTP, POP3, IMAP: Pull methodology
+
+SMTP -> Simple Mail Transfer Protocol, uses port 25
+SMTP has 3 phases-
+1. Handshaking
+2. Transfer of messages, messages are 7 bit ASCII
+3. Closure
+
+POP -> Post Office Protocol, uses port 110
+IMAP -> Internet Mail Access Protocol
+
+Key facts:
+1. DNS servers distribute load through a round robin method
+2. TLD(Top level domains): com, edu, org
+3. DNS queries can be two types - Iterated query and recursive query
