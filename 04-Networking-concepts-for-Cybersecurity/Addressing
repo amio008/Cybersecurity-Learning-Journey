@@ -6,14 +6,16 @@
 Nmap: A network scanner used to find open portss and running services on an IP address
 ARP/IPCONFIG/IFCONFIG: Command line utlities used to view physical and ip addresses.
 
-##Blue team(defenders):
-Process: Blue teams strictly configure cache servers to only store static, public files(img, css stylesheets). Explicitly forbid the caching of dynamic, sensitive data 
-like login pages or payment screen and use short expiration times to prevent stale data.
+##Blue team(defenders): 
 
-End goal: To ensure cache components cannon be used to distribute maliciius code or expose user secrets.
+Process: Configure firewalls using ACL(access control lists). Block all port numbers by default, opening only essential ones(like port 443 for secure web traffic).
+They log MAC and IP addresses to create history of who is on the network.
 
-##Read team(attackers): 
-Process: In an attack called Web Cache Poisoning, the attacker sends a specially crafted HTTP request containing malicious Javascript to the website. If the server
-handles it poorly and the cache stores it, the attacker successfylly "poisons" that asset for subsequent visitors.
+End Goal: Minimize the paths and attacker can take and maintain a reliable record of device and identities.
 
-End Goal: to execute malicous code on the browsers of unsuspecting users at scale.
+##Red team(attackers):
+
+Process: Perform "port scanning" to see what doors are open. If they find an old, unpatched service running on port 21(FTP), they target it. They also spoof their IP or MAC addresses 
+to hide their identity or frame another machine.
+
+Goal: To find exposed port, breach system, evade traffic.
