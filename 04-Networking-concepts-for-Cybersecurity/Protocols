@@ -1,0 +1,22 @@
+##Key points to remember:
+Protocols must agree on - 
+1. Syntax: Structure
+2. Semantics: Meaning of bits
+3. Timing: Speed
+
+Tools:
+1. Whois: A command-line or web tool used to look up domain registration and ownership data
+2. Wireshark: Validates if traffic strictly complies with protocol standards
+
+##Blue team(defenders):
+
+Process: Monitor network logs for "protocol anomalies" such as browser sending HTTP requests that violate standard syntax formatting. They also check IANA/ICANN registries 
+to see if an incoming IP belongs to a reputable company or a known rogue hosting provider.
+
+Goal: Flagging and blocking non-compliant traffic, which is heavily correlated with malware communication.
+
+##Red team(attackers):
+
+Process: Buy lookalike domains through registrars. Build custom malware to purposely violate protocol standards to see if a firewall is weak to notice bad formatting or not.
+
+Goal: To decline targets into trusting their infrastructure and evade detection.
