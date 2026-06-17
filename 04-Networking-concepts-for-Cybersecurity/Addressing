@@ -1,0 +1,19 @@
+##Key points:
+1. Attack surface tracking: Port numbers define visible entry points of a server. Open ports may be exploited by attackers
+2: Identity and attribution: Ip, MAC addresses provide the audit trail which is used by defenders to trace which computer on the network fired the attack
+
+##Tools:
+Nmap: A network scanner used to find open portss and running services on an IP address
+ARP/IPCONFIG/IFCONFIG: Command line utlities used to view physical and ip addresses.
+
+##Blue team(defenders):
+Process: Blue teams strictly configure cache servers to only store static, public files(img, css stylesheets). Explicitly forbid the caching of dynamic, sensitive data 
+like login pages or payment screen and use short expiration times to prevent stale data.
+
+End goal: To ensure cache components cannon be used to distribute maliciius code or expose user secrets.
+
+##Read team(attackers): 
+Process: In an attack called Web Cache Poisoning, the attacker sends a specially crafted HTTP request containing malicious Javascript to the website. If the server
+handles it poorly and the cache stores it, the attacker successfylly "poisons" that asset for subsequent visitors.
+
+End Goal: to execute malicous code on the browsers of unsuspecting users at scale.
