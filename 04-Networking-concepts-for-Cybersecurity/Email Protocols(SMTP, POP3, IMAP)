@@ -1,1 +1,24 @@
+##Key facts:
 
+1. Primary initial access vector: Emails are used to deliver phishing links and malicious attachments.
+2. Inherent lack of authentication: SMTP does not verify who sent an email, so anyone can send email pretending to be anyone, a massive vulnerability known as email spoofing.
+
+##Tools:
+
+1. MXtoolbox: An online suite used to chech email server config and defensive records(SPF, DKIM,DMARC)
+2. Phishme/Gophish: Tools to simulate phishing attacks for training or authorized testing
+
+##Blue team:
+Implement secure authentication layers over SMTP using three records-
+SPF: Defines who is allowed to send mail from a domain
+DKIM: Adds a digital signal verifying the email wasn't altered
+DMARC: Tells the receiving server to delete the email if SPF/DKIM fail
+Use SEG(secure email gateway) to scan attachments for malware.
+
+End goal: To block fraudulent emails.
+
+##Red team:
+Process: Leverage lack of email security to conduct Business Email Compromise(BEC). Forge SMTP headers to look like a trusted executive and email an accountant, demanding urgent 
+wire transfer. Attach malicious files like weaponized PDFs or excel sheets designed to infect victims computer.
+
+End Goal: Trick users into excecuting malicious code or transferring corporate funds.
