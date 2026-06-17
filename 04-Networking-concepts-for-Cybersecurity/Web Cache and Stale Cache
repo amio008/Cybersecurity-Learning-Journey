@@ -1,0 +1,17 @@
+##Tools: 
+
+Burp suites: Manipulate HTTP headers(like X-forwarded-Host) to test if a cache server can be tricked into saving bad data.
+Curl: Command-line tool for checking cache status headers, cache-control, HIT,MISS.
+
+
+##Blue team(defenders):
+Process: Blue teams strictly configure cache servers to only store static, public files(img, css stylesheets). Explicitly forbid the caching of dynamic, sensitive data 
+like login pages or payment screen and use short expiration times to prevent stale data.
+
+End goal: To ensure cache components cannon be used to distribute maliciius code or expose user secrets.
+
+##Read team(attackers): 
+Process: In an attack called Web Cache Poisoning, the attacker sends a specially crafted HTTP request containing malicious Javascript to the website. If the server
+handles it poorly and the cache stores it, the attacker successfylly "poisons" that asset for subsequent visitors.
+
+End Goal: to execute malicous code on the browsers of unsuspecting users at scale.
