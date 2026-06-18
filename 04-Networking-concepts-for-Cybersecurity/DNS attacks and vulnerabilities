@@ -1,1 +1,30 @@
+##Key concepts:
 
+DDoS: Flooding tlds with fake traffic to crash the internet infrastructure
+
+Redirect attacks/DNS poisoning: Injecting fake IP mappings into a DNS cache server, users trying to fo to bank.com are redirected to a malicious
+clone page.
+
+DNS amplification: Attckers send small DNS queries to open DNS servers but fake the senders IP to be the victims IP, and then its flooded with massive traffic cuz of 
+the dns responses.
+
+Mass traffic manipulation: DNS vulnerabilities allow attacckers to control where traffic flows on a global scale, shifting trust and intercepting user connections without 
+touching the victim's actual website.
+
+##Tools:
+
+Scrapy: Powerful python tool used to forge custom, spoofed network packets for amplification attacks.
+
+Wireshark: Used to identify unexpected DNS responses or an overwhelming surge of unsolicited inbound DNS traffic.
+
+##Blue team:
+Process: Implement DNSSEC(DNS Security Extensions), which adds cryptographic signatures to DNS records so servers can prove they aren't sending poisoned data. To
+prevent amplification attacks, they configure public DNS servers to rate-limit requests.
+
+End Goal: To guaranteee the integrity of DNS and prevent their own servers from being weaponized against others.
+
+##Red team: 
+Process: IN DNS posioning, attacker races to send a fake, malicious response to a local DNS resolver before the real server can reply. If they win the race, resolver 
+saves the malicious IP mapping and compromises all local users routing through it.
+
+End goal: Transparently intercept traffic, steal user login creds with lookalike pages, or cause widespread DoS.
