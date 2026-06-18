@@ -1,1 +1,22 @@
+##Tools:
 
+Censys/Shodan: Used by attackers to find the real, hidden "origin" IP address of websites behind a CDN.
+Cloudfare/Akamai portals: Dashboards used by defenders to inspect web security logs and manage bot-blocking configurations.
+
+##Key facts:
+
+Credential Sniffing: Because standard FTP lacks encryption, anyone sitting on the same Wi-Fi or network path can easily read the username and password out of 
+the air using basic tools.
+
+Data Exfiltration: Attackers who break into a company network look for FTP access or run P2P tools to quickly upload gigabytes of sensitive stolen files to 
+external servers.
+
+##Blue Team (Defenders)
+Process: Defenders completely ban standard FTP in corporate environments, replacing it with SFTP (Secure FTP) which encrypts the connection. They block P2P file-sharing protocols at the firewall level to ensure sensitive corporate files cannot be shared out to public networks.
+
+End Goal: To prevent authentication theft and stop unauthorized data transmission.
+
+##Red Team (Attackers)
+Process: Attackers scan networks for legacy FTP servers. If found, they run automated password-guessing tools to compromise them, or sniff the network wires waiting for a legitimate admin to log in, stealing their credentials in plain text.
+
+End Goal: To gain an easy foothold on a system or steal corporate data assets.
