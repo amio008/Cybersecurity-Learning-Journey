@@ -1,1 +1,25 @@
+##Key concepts:
+
+Command and control: WHen malware infects a machine, it needs to talk with the hackers instead of using a hardcoded IP address which will be blocked, the malware 
+makes a DNS request for a domain owned by the hacker.
+
+DNS tunneling: Attackers can sneak stolen data out of a highly secure company by hiding chunks of data inside DNS query packets, because firewalls almost always
+allow DNS traffic out, this data goes completely unnoticed
+
+##Tools:
+Dig/nslookup: command-line utilities used to query DNS servers and look up specific resource records.
+Sublist3r/amass: Tools used to search for hidden subdomains during the investigation phase.
+
+##Blue team:
+Process: Look for unusual DNS activity, if a computer makes thousands of rapid requests for strange domains like x1a9f.attacker.com, they recognize it as DNS tunneling
+or malware c2. They also use passive DNS logs to trace histories of where domains have pointed over time.
+
+End goal: To detect compromised internal systems and block traffic to dangerous domains.
+
+##Red team:
+Process: Use DNS reconnaissance to map out a company's infrastructure. By querying MX records, they find out who handles the company's email. By querying
+TXT or A records, they find exposed development servers. Configure malware to use DGA(Domain Generation Algorithms) to generate hundreds of random domains a day for
+C2, staying ahead of defender blocklists.
+
+End goal: To find hidden infrastructure targets targets or establish unblockable communication channels with infected hosts. 
 
