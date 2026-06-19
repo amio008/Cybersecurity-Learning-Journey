@@ -22,5 +22,5 @@ including notes, labs, practical exercises, and projects.
 
 ### Hands-On Labs
 - [ ] Nmap Enumeration Lab
-- [ ] Wireshark Traffic Analysis Lab
+- [x] Wireshark Traffic Analysis Lab
 - [x] Cisco packet tracer networking Lab
