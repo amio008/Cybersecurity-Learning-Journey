@@ -1,38 +1,38 @@
-```markdown
-# Command Reference: Basic Router Configuration
+# Command Reference – Basic Router Configuration
 
-## Mode Navigation
-
-| Mode | Prompt | Enter | Exit |
-|------|--------|-------|------|
-| User EXEC | `Router>` | Default | `exit` |
-| Privileged EXEC | `Router#` | `enable` | `disable` |
-| Global Config | `Router(config)#` | `configure terminal` | `end` |
-| Interface Config | `Router(config-if)#` | `interface [type] [number]` | `exit` |
-| Line Config | `Router(config-line)#` | `line [type] [number]` | `exit` |
+This file contains the Cisco IOS commands used during this networking exercise.
 
 ---
 
-## Router Reset
+# Reset Router Configuration
 
 ```cisco
 enable
 erase startup-config
 reload
-# Answer: no, no, [Enter]
 ```
+
+When prompted:
+
+* Save configuration? → **No**
+* Proceed with reload? → **Yes**
+* Initial configuration dialog? → **No**
 
 ---
 
-## Basic Configuration
+# Router R1 Configuration
 
 ```cisco
+enable
 configure terminal
+
 hostname R1
 no ip domain-lookup
+
 enable secret class
+
 banner motd &
-!!!AUTHORIZED ACCESS ONLY!!!
+*** AUTHORIZED ACCESS ONLY ***
 &
 
 line console 0
@@ -44,162 +44,103 @@ line vty 0 4
 password cisco
 login
 exit
-```
 
----
-
-## Interface Configuration
-
-### Ethernet (R1)
-```cisco
-interface fastethernet 0/0
+interface FastEthernet0/0
 ip address 192.168.1.1 255.255.255.0
 no shutdown
 exit
-```
 
-### Serial (R1 - DCE)
-```cisco
-interface serial 0/0/0
+interface Serial0/0/0
 ip address 192.168.2.1 255.255.255.0
 clock rate 64000
 no shutdown
 exit
-```
 
-### Serial (R2 - DTE)
-```cisco
-interface serial 0/0/0
-ip address 192.168.2.2 255.255.255.0
-no shutdown
-exit
-```
-
-### Ethernet (R2)
-```cisco
-interface fastethernet 0/0
-ip address 192.168.3.1 255.255.255.0
-no shutdown
-exit
-```
-
----
-
-## Save Configuration
-
-```cisco
-copy running-config startup-config
-# or
-wr
-```
-
----
-
-## Verification Commands
-
-```cisco
-show ip route
-show ip interface brief
-show running-config
-ping 192.168.2.2
-```
-
----
-
-## Full Lab Commands
-
-### R1 Complete
-```cisco
-enable
-configure terminal
-hostname R1
-no ip domain-lookup
-enable secret class
-banner motd &!!!AUTHORIZED ACCESS ONLY!!!&
-line console 0
-password cisco
-login
-exit
-line vty 0 4
-password cisco
-login
-exit
-interface fastethernet 0/0
-ip address 192.168.1.1 255.255.255.0
-no shutdown
-exit
-interface serial 0/0/0
-ip address 192.168.2.1 255.255.255.0
-clock rate 64000
-no shutdown
 end
+
 copy running-config startup-config
 ```
 
-### R2 Complete
+---
+
+# Router R2 Configuration
+
 ```cisco
 enable
 configure terminal
+
 hostname R2
 no ip domain-lookup
+
 enable secret class
-banner motd &!!!AUTHORIZED ACCESS ONLY!!!&
+
+banner motd &
+*** AUTHORIZED ACCESS ONLY ***
+&
+
 line console 0
 password cisco
 login
 exit
+
 line vty 0 4
 password cisco
 login
 exit
-interface serial 0/0/0
+
+interface Serial0/0/0
 ip address 192.168.2.2 255.255.255.0
 no shutdown
 exit
-interface fastethernet 0/0
+
+interface FastEthernet0/0
 ip address 192.168.3.1 255.255.255.0
 no shutdown
+exit
+
 end
+
 copy running-config startup-config
 ```
 
 ---
 
-## Shortcuts
+# Verification Commands
 
-| Command | Shorthand |
-|---------|-----------|
-| `configure terminal` | `conf t` |
-| `interface` | `int` |
-| `fastethernet` | `fa` |
-| `show running-config` | `sh run` |
-| `show ip route` | `sh ip ro` |
-| `show ip interface brief` | `sh ip int br` |
-| `copy running-config startup-config` | `wr` |
-
----
-
-## Troubleshooting Checklist
-
-1. **Check physical connections** - Link lights blinking?
-2. **Verify interface status** - `show ip interface brief` → Should show `up/up`
-3. **Check IP addressing** - Correct IP and subnet mask?
-4. **Verify DCE/clock rate** - DCE side must have `clock rate`
-5. **Check routing table** - `show ip route` → Should show directly connected routes
-6. **Test connectivity** - `ping` from router to router, then host to gateway
-
----
-
-## Interface Status Indicators
-
-| Status | Meaning |
-|--------|---------|
-| `up/up` | Working correctly |
-| `up/down` | Layer 1 up, Layer 2 down |
-| `down/down` | Interface down |
-| `administratively down` | Manually shut down |
-
----
-
-*Created for cybersecurity learning journey - quick reference for Cisco router configuration.*
+```cisco
+show ip interface brief
+show ip route
+show running-config
+ping 192.168.2.2
+ping 192.168.2.1
 ```
+
+These commands were used to verify:
+
+* Interface status
+* Assigned IP addresses
+* Routing table entries
+* Active configuration
+* Router-to-router connectivity
+
+---
+
+# Useful Troubleshooting Commands
+
+```cisco
+show startup-config
+show interfaces
+show ip interface brief
+show ip route
+ping
+```
+
+---
+
+# Quick Notes
+
+* `no shutdown` enables an interface.
+* The DCE side of the serial connection requires a `clock rate`.
+* `enable secret` encrypts the privileged EXEC password.
+* `copy running-config startup-config` saves the configuration to NVRAM.
+* `show ip route` displays directly connected routes after interfaces are configured and active.
