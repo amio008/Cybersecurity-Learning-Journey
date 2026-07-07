@@ -1,1 +1,42 @@
+Concept: Socket Address & Port Numbers
 
+A socket address uniquely identifies one endpoint of communication by combining an IP address and a port number.
+
+Example:
+
+192.168.1.15:443
+
+A port number identifies which application or service should receive the incoming data.
+
+Examples:
+
+HTTP → 80
+HTTPS → 443
+SSH → 22
+DNS → 53
+SMTP → 25
+
+Without ports, the operating system wouldn't know whether incoming data belongs to Chrome, Discord, SSH, or another application.
+
+Cybersecurity Relevance
+
+Ports are the primary entry points attackers investigate during reconnaissance. Every exposed service listening on a port represents a potential attack surface.
+
+Malware also opens sockets to establish reverse shells or communicate with Command-and-Control (C2) servers.
+
+Tools
+Nmap – Scan hosts for open TCP/UDP ports.
+Netcat (nc) – Create TCP/UDP connections, bind shells, and reverse shells.
+ss / netstat – View active sockets and listening services.
+Wireshark – Inspect traffic to and from specific ports.
+Blue Team (Defenders)
+
+Process: Monitor listening ports, disable unnecessary services, detect unexpected outbound connections, and enforce firewall rules to restrict access to sensitive services.
+
+End Goal: Reduce the attack surface and quickly identify unauthorized network services or malware communications.
+
+Red Team (Attackers)
+
+Process: Perform port scanning to identify exposed services, determine software versions, and locate vulnerable applications for exploitation.
+
+End Goal: Discover an entry point into the target network.
