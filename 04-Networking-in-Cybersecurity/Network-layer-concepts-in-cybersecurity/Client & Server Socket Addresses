@@ -1,1 +1,29 @@
+A TCP connection is uniquely identified by four values:
 
+Client IP
+Client Port
+Server IP
+Server Port
+
+This allows thousands of simultaneous connections without confusion.
+
+Cybersecurity Relevance
+
+Incident responders rely on socket information to trace malware communications, identify infected hosts, and reconstruct attacker activity.
+
+Tools
+Wireshark
+tcpdump
+Zeek
+netstat
+Blue Team (Defenders)
+
+Process: Analyze connection logs to identify unusual outbound sessions, suspicious destination IPs, or unexpected client-server communications.
+
+End Goal: Detect compromised systems and lateral movement.
+
+Red Team (Attackers)
+
+Process: Blend malicious traffic with legitimate client-server communications to avoid detection.
+
+End Goal: Maintain stealthy communication with compromised hosts.
