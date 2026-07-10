@@ -1,1 +1,26 @@
+The Transport Layer breaks large application data into segments before transmission.
 
+The receiving host performs reassembly, restoring the original data.
+
+During encapsulation, TCP or UDP headers are added before forwarding data to the Network Layer.
+
+Cybersecurity Relevance
+
+Many IDS/IPS systems reconstruct fragmented traffic before inspecting it because attackers intentionally fragment packets to evade detection.
+
+Tools
+Wireshark
+tcpdump
+Suricata
+Snort
+Blue Team (Defenders)
+
+Process: Enable stream reassembly and fragmented packet inspection to detect hidden malicious payloads.
+
+End Goal: Prevent IDS evasion through packet fragmentation.
+
+Red Team (Attackers)
+
+Process: Fragment malicious payloads across multiple packets to bypass poorly configured intrusion detection systems.
+
+End Goal: Deliver malicious payloads without triggering security alerts.
