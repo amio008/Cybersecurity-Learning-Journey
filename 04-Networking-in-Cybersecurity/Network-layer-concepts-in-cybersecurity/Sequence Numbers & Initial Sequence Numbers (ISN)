@@ -1,1 +1,28 @@
+Every byte transmitted in TCP receives a sequence number.
 
+The Initial Sequence Number (ISN) is randomly generated during connection establishment.
+
+Sequence numbers allow TCP to:
+
+reorder packets
+detect missing data
+retransmit lost segments
+Cybersecurity Relevance
+
+Predictable sequence numbers historically enabled TCP session hijacking and spoofing attacks. Modern operating systems randomize ISNs to prevent this.
+
+Tools
+Wireshark
+Scapy
+tcpdump
+Blue Team (Defenders)
+
+Process: Verify TCP state consistency and rely on randomized ISNs provided by modern operating systems.
+
+End Goal: Prevent spoofed packets from joining legitimate sessions.
+
+Red Team (Attackers)
+
+Process: Attempt TCP session hijacking by injecting forged packets into active connections.
+
+End Goal: Impersonate one endpoint and inject malicious commands.
