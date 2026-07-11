@@ -1,1 +1,33 @@
+TCP uses flags to manage the state of every connection.
 
+SYN – Initiates a connection.
+ACK – Acknowledges received data.
+PSH – Immediately deliver buffered data to the application.
+RST – Abruptly terminate a connection.
+FIN – Gracefully close a connection.
+URG – Indicates urgent data.
+Cybersecurity Relevance
+
+Abnormal TCP flag combinations often indicate malicious activity, scanning, or denial-of-service attacks.
+
+SYN packets are commonly abused during SYN Flood attacks.
+
+RST packets can terminate legitimate sessions.
+
+Tools
+Wireshark
+tcpdump
+Suricata
+Snort
+Nmap
+Blue Team (Defenders)
+
+Process: Detect abnormal flag patterns, identify SYN floods, and configure SYN cookies or firewall protections.
+
+End Goal: Prevent connection exhaustion and detect suspicious TCP behavior.
+
+Red Team (Attackers)
+
+Process: Use SYN scans to enumerate services without completing connections, inject RST packets to disrupt communications, or launch SYN Flood attacks.
+
+End Goal: Gather reconnaissance or deny service to target systems.
