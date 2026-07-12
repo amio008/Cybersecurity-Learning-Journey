@@ -1,1 +1,25 @@
 
+TCP guarantees reliable communication through acknowledgements, retransmissions, and buffering out-of-order segments.
+
+It also calculates the Retransmission Timeout (RTO) to determine when lost packets should be resent.
+
+Cybersecurity Relevance
+
+High retransmission rates can indicate network congestion, packet loss, denial-of-service attacks, or unstable Command-and-Control traffic.
+
+Out-of-order packets may also be intentionally crafted to evade IDS inspection.
+
+Tools
+Wireshark
+Zeek
+Suricata
+Blue Team (Defenders)
+
+Process: Monitor retransmission rates and analyze abnormal packet ordering during incident investigations.
+
+End Goal: Identify network attacks, infrastructure issues, or stealthy malware communications.
+
+Red Team (Attackers)
+
+Process: Exploit differences in packet reassembly between operating systems and intrusion detection systems to bypass detection.
+End Goal: Deliver malicious traffic that security appliances fail to reconstruct correctly.
