@@ -1,1 +1,31 @@
+TCP prevents receivers from becoming overwhelmed using a receive window (rwnd).
 
+The sliding window determines how much unacknowledged data may be transmitted before waiting for acknowledgements.
+
+Important terms include:
+
+SF – Send First
+SN – Send Next
+RN – Receive Next
+RF – Receive First
+rwnd – Receiver Window
+Cybersecurity Relevance
+
+Attackers may abuse TCP window behavior during denial-of-service attacks or use unusual window sizes for operating system fingerprinting.
+
+Tools
+Wireshark
+Nmap
+Zeek
+
+Blue Team (Defenders)
+
+Process: Monitor abnormal TCP window behavior, detect fingerprinting attempts, and investigate unusual traffic patterns.
+
+End Goal: Identify reconnaissance activity and prevent resource exhaustion attacks.
+
+Red Team (Attackers)
+
+Process: Analyze TCP window characteristics to infer operating systems or exploit inefficient flow control during attacks.
+
+End Goal: Gather intelligence and optimize exploitation strategies.
